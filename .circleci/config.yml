@@ -25,11 +25,11 @@ jobs:
           key: deps9-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
           paths:
             - ".venv"
-            - "/usr/local/bin"
-            - "/usr/local/lib/python2.7"
+            # - "/usr/local/bin"
+            # - "/usr/local/lib/python2.7"
       - run:
           command: |
-            pipenv --two run python manage.py test
+            pipenv --two run "python manage.py test"
       - store_test_results:
           path: test-results
       - store_artifacts:
